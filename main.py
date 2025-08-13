@@ -23,7 +23,7 @@ if not os.path.exists(MODEL_FILE):
         if sys.platform.startswith("win"):
             subprocess.run(["curl", "-L", MODEL_URL, "-o", MODEL_FILE], check=True)
         else:
-            subprocess.run(["wget", MODEL_URL, "-O", MODEL_FILE], check=True)
+            subprocess.run(["curl", "-L", MODEL_URL, "-o", MODEL_FILE], check=True)
         print("[INFO] Model downloaded successfully.")
     except Exception as e:
         print(f"[ERROR] Failed to download model: {e}")
