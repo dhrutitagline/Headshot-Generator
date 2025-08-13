@@ -65,6 +65,7 @@ Runtime → Change runtime type → Hardware accelerator → GPU
 ### 📂 Project Structure
 ```bash
 ai-business-headshot/
+│-- .gitignore 
 │-- main.py                  # Main script with Gradio interface
 │-- requirements.txt         # Python dependencies
 │-- ip-adapter-faceid_sd15.bin  # Model file (auto/manual download)
