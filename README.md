@@ -45,26 +45,32 @@ wget https://huggingface.co/h94/IP-Adapter-FaceID/resolve/main/ip-adapter-faceid
 
 The file should be placed in the same directory as main.py.
 
-### ▶️ Run the Application
-#### Local PC
+### 🖼️ Usage
+#### Run on CPU
 ```bash
-python main.py
+python main_cpu.py
 ```
+
+#### Run on GPU
+```bash
+python main_gpu.py
+```
+
 #### Google Colab
 1. Open your Colab notebook
 2. Enable GPU:
 Runtime → Change runtime type → Hardware accelerator → GPU
 3. Clone the repo, install requirements, and run:
 ```bash
-!git clone https://github.com/yourusername/ai-business-headshot.git
-%cd ai-business-headshot
+!git clone https://github.com/dhrutitagline/Headshot-Generator.git
+%cd Headshot-Generator
 !pip install -r requirements.txt
 !python main.py
 ```
 
 ### 📂 Project Structure
 ```bash
-ai-business-headshot/
+Headshot-Generator/
 │-- .gitignore 
 │-- main.py                  # Main script with Gradio interface
 │-- requirements.txt         # Python dependencies
