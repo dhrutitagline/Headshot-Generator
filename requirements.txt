@@ -1,13 +1,30 @@
-torch
-torchvision
-torchaudio
-diffusers>=0.27.0
-transformers
-accelerate
-safetensors
-gradio
-opencv-python
-Pillow
-insightface
-onnxruntime
-ip_adapter
+# Core PyTorch (CPU/GPU auto install depending on local environment)
+torch>=2.2.0
+torchvision>=0.17.0
+torchaudio>=2.2.0
+
+# HuggingFace ecosystem
+transformers>=4.55.0
+diffusers>=0.34.0
+accelerate>=1.10.0
+safetensors>=0.6.0
+
+# Computer vision / image processing
+opencv-python>=4.10.0
+pillow>=10.0.0
+numpy>=1.26.4
+scipy>=1.12.0
+matplotlib>=3.9.0
+
+# Face enhancement / recognition
+insightface>=0.7.3
+ip-adapter>=0.1.0
+
+# Inpainting / object removal
+onnxruntime==1.19.2
+
+# Segmentation (for clothes changer & masking)
+segment-anything>=1.0
+
+# UI
+gradio>=5.30.0

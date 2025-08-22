@@ -44,20 +44,13 @@ if not hasattr(torch, "_patched_load"):
 # Import after patch
 from ip_adapter.ip_adapter_faceid import IPAdapterFaceID
 
-# -------------------
-# Device selection
-# -------------------
-device = "cuda" if torch.cuda.is_available() else "cpu"
-dtype = torch.float16 if device == "cuda" else torch.float32
-print(f"[INFO] Using device: {device} with dtype: {dtype}")
-
+device = "cuda"
+dtype = torch.float16
 # -------------------
 # InsightFace setup
 # -------------------
-providers = ['CUDAExecutionProvider', 'CPUExecutionProvider'] if device == "cuda" else ['CPUExecutionProvider']
-ctx_id = 0 if device == "cuda" else -1
-app = FaceAnalysis(providers=providers)
-app.prepare(ctx_id=ctx_id, det_size=(640, 640))
+app = FaceAnalysis(providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
+app.prepare(ctx_id=0, det_size=(640, 640))
 
 # -------------------
 # Model paths
@@ -72,19 +65,10 @@ pipe_sd = StableDiffusionPipeline.from_pretrained(
     sd_base, torch_dtype=dtype, safety_checker=None
 ).to(device)
 
-if device == "cpu":
-    pipe_sd.unet.to(dtype)
-    pipe_sd.vae.to(dtype)
-    pipe_sd.text_encoder.to(dtype)
-
 # -------------------
 # Load IPAdapter FaceID
 # -------------------
 ipai_model = IPAdapterFaceID(pipe_sd, ip_ckpt, device=device)
-if device == "cpu":
-    ipai_model.pipe.unet.to(dtype)
-    ipai_model.pipe.vae.to(dtype)
-    ipai_model.pipe.text_encoder.to(dtype)
 
 # -------------------
 # Prompt variations
@@ -163,4 +147,4 @@ iface = gr.Interface(
 )
 
 if __name__ == "__main__":
-    iface.launch(debug=True)
+    iface.launch(debug=True,share=True)

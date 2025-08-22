@@ -1,4 +1,4 @@
-# AI Business Headshot Generator
+# Headshot Generator
 
 This project generates **professional corporate headshots** from your uploaded image using **IP-Adapter FaceID** and **Stable Diffusion**.  
 It detects your face, extracts facial embeddings, and produces a **realistic business headshot** with various suit, pose, and background combinations.
@@ -19,8 +19,8 @@ It detects your face, extracts facial embeddings, and produces a **realistic bus
 
 ### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/yourusername/ai-business-headshot.git
-cd ai-business-headshot
+git clone https://github.com/dhrutitagline/Headshot-Generator.git
+cd Headshot-Generator
 ```
 
 ### 2️⃣ Install Requirements
